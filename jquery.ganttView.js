@@ -141,6 +141,12 @@ behavior: {
             var headerDiv = jQuery("<div>", { "class": "ganttview-vtheader" });
             for (var i = 0; i < data.length; i++) {
                 var itemDiv = jQuery("<div>", { "class": "ganttview-vtheader-item" });
+                
+                var $moveDiv = $("<div>").css({"height":(data[i].series.length * cellHeight) + "px", "float": "left", "width":"30px"});
+                $moveDiv.append($("<input>").attr({"type":"button"}).text("↑"));
+                $moveDiv.append($("<input>").attr({"type":"button"}).text("↓"));
+                itemDiv.append($moveDiv);
+                
                 itemDiv.append(jQuery("<div>", {
                     "class": "ganttview-vtheader-item-name",
                     "css": { "height": (data[i].series.length * cellHeight) + "px" }
