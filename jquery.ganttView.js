@@ -139,12 +139,26 @@ behavior: {
 
         function addVtHeader(div, data, cellHeight) {
             var headerDiv = jQuery("<div>", { "class": "ganttview-vtheader" });
-            for (var i = 0; i < data.length; i++) {
+            $.each(data, function(i){
                 var itemDiv = jQuery("<div>", { "class": "ganttview-vtheader-item" });
                 
-                var $moveDiv = $("<div>").css({"height":(data[i].series.length * cellHeight) + "px", "float": "left", "width":"30px"});
-                $moveDiv.append($("<input>").attr({"type":"button"}).text("↑"));
-                $moveDiv.append($("<input>").attr({"type":"button"}).text("↓"));
+                var $moveDiv = $("<div>").css({"height":(data[i].series.length * cellHeight) + "px", "float": "left"}).addClass("ganttview-vtheader-item-move");
+                var $upButton = $("<a>").attr({"href":"javascript:void(0)"}).addClass("btn btn-mini");
+                $upButton.append($("<i>").addClass("icon-arrow-up"));
+                var id = this.id;
+                $upButton.on("click", function(){
+                	alert(id + " up.");
+                });
+                $moveDiv.append($("<div>").append($upButton).css({"margin-bottom":"5px", "margin-top":"5px"}));
+                
+                var $downButton = $("<a>").attr({"href":"javascript:void(0)"}).addClass("btn btn-mini");
+                $downButton.append($("<i>").addClass("icon-arrow-down"));
+                var id = this.id;
+                $downButton.on("click", function(){
+                	alert(id + " down.");
+                });
+                $moveDiv.append($("<div>").append($downButton));
+
                 itemDiv.append($moveDiv);
                 
                 itemDiv.append(jQuery("<div>", {
@@ -158,7 +172,7 @@ behavior: {
                 }
                 itemDiv.append(seriesDiv);
                 headerDiv.append(itemDiv);
-            }
+            });
             div.append(headerDiv);
         }
 

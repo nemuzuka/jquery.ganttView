@@ -68,6 +68,7 @@ div.ganttview-vtheader-item-name {
 	padding-left: 5px;
 	border-top: 1px solid #d0d0d0;
 	line-height: 16px;
+	overflow: hidden;
 }
 
 div.ganttview-vtheader-series-name {
@@ -77,6 +78,11 @@ div.ganttview-vtheader-series-name {
 	line-height: 16px;
 	padding-left: 5px;
 	overflow: hidden;
+}
+
+div.ganttview-vtheader-item-move {
+	width: 30px;
+	border-top: 1px solid #d0d0d0;
 }
 
 
