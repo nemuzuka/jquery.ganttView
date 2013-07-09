@@ -143,21 +143,26 @@ behavior: {
                 var itemDiv = jQuery("<div>", { "class": "ganttview-vtheader-item" });
                 
                 var $moveDiv = $("<div>").css({"height":(data[i].series.length * cellHeight) + "px", "float": "left"}).addClass("ganttview-vtheader-item-move");
+                
+                var $menu = $("<div>");
                 var $upButton = $("<a>").attr({"href":"javascript:void(0)"}).addClass("btn btn-mini");
                 $upButton.append($("<i>").addClass("icon-arrow-up"));
                 var id = this.id;
                 $upButton.on("click", function(){
                 	alert(id + " up.");
                 });
-                $moveDiv.append($("<div>").append($upButton).css({"margin-bottom":"5px", "margin-top":"5px"}));
+                $menu.append($upButton);
                 
-                var $downButton = $("<a>").attr({"href":"javascript:void(0)"}).addClass("btn btn-mini");
+                var $downButton = $("<a>").attr({"href":"javascript:void(0)"}).addClass("btn btn-mini").css({"margin-top":"5px"});
                 $downButton.append($("<i>").addClass("icon-arrow-down"));
                 var id = this.id;
                 $downButton.on("click", function(){
                 	alert(id + " down.");
                 });
-                $moveDiv.append($("<div>").append($downButton));
+                $menu.append($downButton);
+                $menu.hide();
+
+                $moveDiv.append($("<div>").append($menu));
 
                 itemDiv.append($moveDiv);
                 
@@ -171,6 +176,17 @@ behavior: {
 						.append(data[i].series[j].name));
                 }
                 itemDiv.append(seriesDiv);
+                
+                itemDiv.on({
+            		"mouseenter":function(){
+            			$menu.show();
+            		},
+            		"mouseleave":function(){
+            			$menu.hide();
+            		}
+            	});
+
+                
                 headerDiv.append(itemDiv);
             });
             div.append(headerDiv);
