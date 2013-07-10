@@ -64,7 +64,7 @@ div.ganttview-vtheader-item {
 }
 
 div.ganttview-vtheader-item-name {
-	width: 95px;
+	width: 140px;
 	padding-left: 5px;
 	border-top: 1px solid #d0d0d0;
 	line-height: 16px;
@@ -72,7 +72,7 @@ div.ganttview-vtheader-item-name {
 }
 
 div.ganttview-vtheader-series-name {
-	width: 130px;
+	width: 90px;
 	height: 51px;
 	border-top: 1px solid #d0d0d0;
 	line-height: 16px;
@@ -81,7 +81,7 @@ div.ganttview-vtheader-series-name {
 }
 
 div.ganttview-vtheader-item-move {
-	width: 35px;
+	width: 30px;
 	border-top: 1px solid #d0d0d0;
 }
 
@@ -105,6 +105,10 @@ div.ganttview-grid-row-cell {
 
 div.ganttview-grid-row-cell.ganttview-weekend {
 	background-color: #fafafa;
+}
+
+div.ganttview-grid-row-cell.ganttview-now {
+	background-color: #FF6347;
 }
 
 

@@ -47,7 +47,9 @@
 						var msg = "You dragged an event: { start: " + data.start.toString("M/d/yyyy") + ", end: " + data.end.toString("M/d/yyyy") + " }";
 						$("#eventMessage").text(msg);
 					}
-				}
+				},
+				dayOffList:[new Date(2010,00,07), new Date(2010,00,05), new Date(2010,00,09)],
+				today:new Date(2010,00,08)
 			});
 			
 			// $("#ganttChart").ganttView("setSlideWidth", 600);

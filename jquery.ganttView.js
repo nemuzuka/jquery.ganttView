@@ -7,7 +7,6 @@ MIT License Applies
 /*
 Options
 -----------------
-showWeekends: boolean
 data: object
 cellWidth: number
 cellHeight: number
@@ -21,6 +20,8 @@ behavior: {
 	onDrag: function,
 	onResize: function
 }
+dayOffList: array
+today: date
 */
 
 (function (jQuery) {
@@ -49,9 +50,11 @@ behavior: {
             vHeaderWidth: 100,
             behavior: {
             	clickable: true,
-            	draggable: true,
-            	resizable: true
-            }
+            	draggable: false,
+            	resizable: false
+            },
+            dayOffList:[],
+            today : new Date()
         };
         
         var opts = jQuery.extend(true, defaults, options);
@@ -109,7 +112,7 @@ behavior: {
 			
             dates = getDates(opts.start, opts.end);
             addHzHeader(slideDiv, dates, opts.cellWidth);
-            addGrid(slideDiv, opts.data, dates, opts.cellWidth, opts.showWeekends);
+            addGrid(slideDiv, opts.data, dates, opts.cellWidth, opts.dayOffList, opts.today);
             addBlockContainers(slideDiv, opts.data);
             addBlocks(slideDiv, opts.data, opts.cellWidth, opts.start);
             div.append(slideDiv);
@@ -217,15 +220,33 @@ behavior: {
             div.append(headerDiv);
         }
 
-        function addGrid(div, data, dates, cellWidth, showWeekends) {
+        //日付である想定です
+        function _inArray(date, array) {
+        	var ret = -1;
+        	$.each(array, function(index){
+        		if(this.getTime() == date.getTime()) {
+        			ret = index;
+        			return false;
+        		}
+        	});
+        	return ret;
+        }
+        
+        function addGrid(div, data, dates, cellWidth, dayOffList, today) {
             var gridDiv = jQuery("<div>", { "class": "ganttview-grid" });
             var rowDiv = jQuery("<div>", { "class": "ganttview-grid-row" });
 			for (var y in dates) {
 				for (var m in dates[y]) {
 					for (var d in dates[y][m]) {
 						var cellDiv = jQuery("<div>", { "class": "ganttview-grid-row-cell" });
-						if (DateUtils.isWeekend(dates[y][m][d]) && showWeekends) { 
-							cellDiv.addClass("ganttview-weekend"); 
+						
+						if(today.getTime() == dates[y][m][d].getTime()) {
+							cellDiv.addClass("ganttview-now"); 
+						} else {
+							var index = _inArray(dates[y][m][d], dayOffList);
+							if (index != -1) { 
+								cellDiv.addClass("ganttview-weekend"); 
+							}
 						}
 						rowDiv.append(cellDiv);
 					}
