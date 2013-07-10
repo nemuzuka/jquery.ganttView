@@ -54,7 +54,7 @@ today: date
             	resizable: false
             },
             dayOffList:[],
-            today : new Date()
+            today : new Date().setHours(0,0,0,0)
         };
         
         var opts = jQuery.extend(true, defaults, options);
