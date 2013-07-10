@@ -44,7 +44,7 @@ behavior: {
         var defaults = {
             showWeekends: true,
             cellWidth: 21,
-            cellHeight: 31,
+            cellHeight: 51,
             slideWidth: 400,
             vHeaderWidth: 100,
             behavior: {
@@ -145,16 +145,16 @@ behavior: {
                 var $moveDiv = $("<div>").css({"height":(data[i].series.length * cellHeight) + "px", "float": "left"}).addClass("ganttview-vtheader-item-move");
                 
                 var $menu = $("<div>");
-                var $upButton = $("<a>").attr({"href":"javascript:void(0)"}).addClass("btn btn-mini");
-                $upButton.append($("<i>").addClass("icon-arrow-up"));
+                var $upButton = $("<span>").addClass("label").css({"margin-top":"5px","margin-left":"5px","cursor":"pointer"});
+                $upButton.append($("<i>").addClass("icon-arrow-up icon-white"));
                 var id = this.id;
                 $upButton.on("click", function(){
                 	alert(id + " up.");
                 });
                 $menu.append($upButton);
                 
-                var $downButton = $("<a>").attr({"href":"javascript:void(0)"}).addClass("btn btn-mini").css({"margin-top":"5px"});
-                $downButton.append($("<i>").addClass("icon-arrow-down"));
+                var $downButton = $("<span>").addClass("label").css({"margin-top":"5px", "margin-left":"5px","cursor":"pointer"});
+                $downButton.append($("<i>").addClass("icon-arrow-down icon-white"));
                 var id = this.id;
                 $downButton.on("click", function(){
                 	alert(id + " down.");
