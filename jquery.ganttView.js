@@ -22,6 +22,7 @@ behavior: {
 }
 dayOffList: array
 today: date
+readOnly: boolean
 */
 
 (function (jQuery) {
@@ -54,7 +55,8 @@ today: date
             	resizable: false
             },
             dayOffList:[],
-            today : new Date().setHours(0,0,0,0)
+            today : new Date().setHours(0,0,0,0),
+            readOnly : true
         };
         
         var opts = jQuery.extend(true, defaults, options);
@@ -103,7 +105,7 @@ today: date
 	var Chart = function(div, opts) {
 		
 		function render() {
-			addVtHeader(div, opts.data, opts.cellHeight);
+			addVtHeader(div, opts.data, opts.cellHeight, opts.readOnly);
 
             var slideDiv = jQuery("<div>", {
                 "class": "ganttview-slide-container",
@@ -140,7 +142,7 @@ today: date
 			return dates;
         }
 
-        function addVtHeader(div, data, cellHeight) {
+        function addVtHeader(div, data, cellHeight, readOnly) {
             var headerDiv = jQuery("<div>", { "class": "ganttview-vtheader" });
             $.each(data, function(i){
                 var itemDiv = jQuery("<div>", { "class": "ganttview-vtheader-item" });
@@ -182,10 +184,14 @@ today: date
                 
                 itemDiv.on({
             		"mouseenter":function(){
-            			$menu.show();
+            			if(readOnly == false) {
+                			$menu.show();
+            			}
             		},
             		"mouseleave":function(){
-            			$menu.hide();
+            			if(readOnly == false) {
+                			$menu.hide();
+            			}
             		}
             	});
 
@@ -324,7 +330,7 @@ today: date
 		function apply() {
 			
 			if (opts.behavior.clickable) { 
-            	bindBlockClick(div, opts.behavior.onClick); 
+            	bindBlockClick(div, opts.behavior.onClick, opts.readOnly); 
         	}
         	
             if (opts.behavior.resizable) { 
@@ -336,9 +342,9 @@ today: date
         	}
 		}
 
-        function bindBlockClick(div, callback) {
+        function bindBlockClick(div, callback, readOnly) {
             jQuery("div.ganttview-block", div).live("click", function () {
-                if (callback) { callback(jQuery(this).data("block-data")); }
+                if (callback) { callback(jQuery(this).data("block-data"), readOnly); }
             });
         }
         

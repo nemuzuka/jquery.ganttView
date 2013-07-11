@@ -35,9 +35,9 @@
 				data: ganttData,
 				slideWidth: 900,
 				behavior: {
-					onClick: function (data) { 
+					onClick: function (data, readOnly) { 
 						var msg = "You clicked on an event: { start: " + data.start.toString("M/d/yyyy") + ", end: " + data.end.toString("M/d/yyyy") + " }";
-						$("#eventMessage").text(msg);
+						$("#eventMessage").text(msg + " and readOnly:" + readOnly + " id:" + data.id);
 					},
 					onResize: function (data) { 
 						var msg = "You resized an event: { start: " + data.start.toString("M/d/yyyy") + ", end: " + data.end.toString("M/d/yyyy") + " }";
@@ -49,7 +49,8 @@
 					}
 				},
 				dayOffList:[new Date(2010,00,07), new Date(2010,00,05), new Date(2010,00,09)],
-				today:new Date(2010,00,08)
+				today:new Date(2010,00,08),
+				readOnly:false
 			});
 			
 			// $("#ganttChart").ganttView("setSlideWidth", 600);
