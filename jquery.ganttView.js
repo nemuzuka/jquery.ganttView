@@ -297,7 +297,8 @@ readOnly: boolean
                         "css": {
                             "width": ((size * cellWidth) - 9) + "px",
                             "margin-left": ((offset * cellWidth) + 3) + "px"
-                        }
+                        },
+                        "id" : "ganttview-block_" + data[i].id
                     });
                     addBlockData(block, data[i], series);
                     if (data[i].series[j].color) {
