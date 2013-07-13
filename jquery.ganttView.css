@@ -136,10 +136,11 @@ div.ganttview-block {
 
 div.ganttview-block-text {
 	position: absolute;
-	height: 12px;
+	height: 43px;
 	font-size: 0.8em;
 	color: #999;
 	padding: 2px 3px;
+	overflow: hidden;
 }
 
 

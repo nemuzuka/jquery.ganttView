@@ -46,7 +46,7 @@ readOnly: boolean
         var defaults = {
             showWeekends: true,
             cellWidth: 21,
-            cellHeight: 51,
+            cellHeight: 48,
             slideWidth: 400,
             vHeaderWidth: 100,
             behavior: {
@@ -171,14 +171,18 @@ readOnly: boolean
 
                 itemDiv.append($moveDiv);
                 
+                var $name = $("<a>").attr({"href":"javascript:void(0)"}).text(data[i].name);
+                $name.on("click", function(){
+                	alert(id + " detail.");
+                });
                 itemDiv.append(jQuery("<div>", {
                     "class": "ganttview-vtheader-item-name",
                     "css": { "height": (data[i].series.length * cellHeight) + "px" }
-                }).append(data[i].name));
+                }).append($name));
                 var seriesDiv = jQuery("<div>", { "class": "ganttview-vtheader-series" });
                 for (var j = 0; j < data[i].series.length; j++) {
                     seriesDiv.append(jQuery("<div>", { "class": "ganttview-vtheader-series-name" })
-						.append(data[i].series[j].name));
+						.text(data[i].series[j].name));
                 }
                 itemDiv.append(seriesDiv);
                 
@@ -289,7 +293,7 @@ readOnly: boolean
 					var offset = DateUtils.daysBetween(start, series.start);
 					var block = jQuery("<div>", {
                         "class": "ganttview-block",
-                        "title": series.name + ", " + size + " days",
+                        "title": data[i].name,
                         "css": {
                             "width": ((size * cellWidth) - 9) + "px",
                             "margin-left": ((offset * cellWidth) + 3) + "px"
@@ -299,7 +303,7 @@ readOnly: boolean
                     if (data[i].series[j].color) {
                         block.css("background-color", data[i].series[j].color);
                     }
-                    block.append(jQuery("<div>", { "class": "ganttview-block-text" }).text(size));
+                    block.append(jQuery("<div>", { "class": "ganttview-block-text" }).text(data[i].name));
                     jQuery(rows[rowIdx]).append(block);
                     rowIdx = rowIdx + 1;
                 }

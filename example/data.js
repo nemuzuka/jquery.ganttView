@@ -5,8 +5,8 @@ var ganttData = [
 		]
 	}, 
 	{
-		id: 2, name: "Feature 2", series: [
-			{ name: "Planned", start: new Date(2010,00,05), end: new Date(2010,00,20) },
+		id: 2, name: "<script>alert('警告')</script>", series: [
+			{ name: "<script>alert('警告')</script>", start: new Date(2010,00,05), end: new Date(2010,00,20) },
 			{ name: "Actual", start: new Date(2010,00,06), end: new Date(2010,00,17), color: "#f0f0f0" },
 			{ name: "Projected", start: new Date(2010,00,06), end: new Date(2010,00,17), color: "#e0e0e0" }
 		]
