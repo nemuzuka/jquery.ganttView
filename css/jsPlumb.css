@@ -1,0 +1,24 @@
+
+/* z index stuff. windows are at z-index 24. */
+
+/* ._jsPlumb_connector { z-index:18; }
+._jsPlumb_endpoint { z-index:19; }
+._jsPlumb_overlay { z-index:20; }
+
+._jsPlumb_connector._jsPlumb_hover {
+    z-index:21 !important;
+}
+
+._jsPlumb_endpoint._jsPlumb_hover {
+    z-index:22 !important;
+}
+
+._jsPlumb_overlay._jsPlumb_hover {
+    z-index:23 !important;
+}
+
+._jsPlumb_endpoint {
+	z-index:3;
+}
+ */
+._jsPlumb_connector { z-index:1; }
