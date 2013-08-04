@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="ja">
+<meta charset="UTF-8">
+<head>
+	<link rel="stylesheet" type="text/css" href="../lib/jquery-ui-1.8.4.css" />
+	<link rel="stylesheet" type="text/css" href="reset.css" />
+	<link rel="stylesheet" type="text/css" href="bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="../jquery.dayCalendar.css" />
+	<style type="text/css">
+		body {
+			font-family: tahoma, verdana, helvetica;
+			font-size: 0.8em;
+		}
+	</style>
+	<title>jQuery Gantt</title>
+</head>
+<body>
+
+	<div id="dayCalendar"></div>
+	<br/><br/>
+	<div id="eventMessage"></div>
+
+	<script type="text/javascript" src="../lib/jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="../lib/date.js"></script>
+	<script type="text/javascript" src="../jquery.dayCalendar.js"></script>
+	<script type="text/javascript" src="bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+
+	<style type="text/css">
+		.time_div_item {
+			float:left;
+			background: #9db;
+			width: 84px;
+			height: 31px;
+		}
+		
+		.time_div_item .in {
+			border-top: 2px solid red;
+			border-bottom: 2px solid red;
+			border-left: 1px solid red;
+			border-right: 1px solid red;
+			height: 27px;
+		}
+		
+		.item_view_area {
+			width: 600px;
+			overflow: scroll;
+		}
+		.item_clear {
+			clear:both;
+		}
+		
+		.item_resource_area {
+			width: 200px;
+			overflow: hidden;
+			position: relative;
+			float: left;
+		}
+
+		.resource_div_item {
+			height: 31px;
+		}
+		
+	</style>
+	
+	<p>divの勉強がてらやってみた</p>
+	
+	<div style="width: 1024px;">
+		<div style="witdh : 800px;">
+			<div class="item_resource_area">
+				<div class="resource_div_item"></div>
+				<div class="resource_div_item">ほげおさん</div>
+				<div class="resource_div_item">ほげおさん2</div>
+				<div class="resource_div_item">ほげおさん3</div>
+			</div>
+		
+			<div class="item_view_area">
+				<div style="width: 4436px;" class="item_clear">
+					<div class="time_div_item">
+						<div class="in">00:00</div>
+					</div>
+					<div class="time_div_item">
+						<div class="in">01:00</div>
+					</div>
+					<div class="time_div_item">
+						<div class="in">02:00</div>
+					</div>
+					<div class="time_div_item">
+						<div class="in">03:00</div>
+					</div>
+					<div class="time_div_item">
+						<div class="in">04:00</div>
+					</div>
+					<div class="time_div_item">
+						<div class="in">05:00</div>
+					</div>
+					<div class="time_div_item">
+						<div class="in">06:00</div>
+					</div>
+					<div class="time_div_item">
+						<div class="in">07:00</div>
+					</div>
+					<div class="time_div_item">
+						<div class="in">08:00</div>
+					</div>
+					<div class="time_div_item">
+						<div class="in">09:00</div>
+					</div>
+					<div class="time_div_item">
+						<div class="in">10:00</div>
+					</div>
+					<div class="time_div_item">
+						<div class="in">11:00</div>
+					</div>
+					<div class="time_div_item">
+						<div class="in">12:00</div>
+					</div>
+					<div class="time_div_item">
+						<div class="in">13:00</div>
+					</div>
+					<div class="time_div_item">
+						<div class="in">14:00</div>
+					</div>
+					<div class="time_div_item">
+						<div class="in">15:00</div>
+					</div>
+				</div>
+				<div style="width: 4436px;" class="item_clear">
+					<div class="time_div_item">00:00</div>
+					<div class="time_div_item">01:00</div>
+					<div class="time_div_item">02:00</div>
+					<div class="time_div_item">03:00</div>
+					<div class="time_div_item">04:00</div>
+					<div class="time_div_item">05:00</div>
+					<div class="time_div_item">06:00</div>
+					<div class="time_div_item">07:00</div>
+					<div class="time_div_item">08:00</div>
+					<div class="time_div_item">09:00</div>
+					<div class="time_div_item">10:00</div>
+					<div class="time_div_item">11:00</div>
+					<div class="time_div_item">12:00</div>
+					<div class="time_div_item">13:00</div>
+					<div class="time_div_item">14:00</div>
+					<div class="time_div_item">15:00</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
